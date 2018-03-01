@@ -26,9 +26,13 @@ showattr (key, value) = key ++ "=\"" ++ value ++ "\""
 attrShow :: XML -> String
 attrShow xml = concat $ alternate spaces (fmap showattr $ attrs xml) 
 
-instance Show XML where
-	show xml = "<" ++ tag xml  ++ attrShow xml ++ ">\n" ++ childrenstring ++ ending 
+showAux :: Int -> XML -> String
+showAux indents xml = heading ++ childrenstring ++ ending
 		where
-			ending         = "</"++tag xml++">\n"
-			childrenstring = concatMap (\x -> "\t" ++x) $ (map show $ children xml)
+			heading        = (replicate indents '\t') ++ "<" ++tag xml++attrShow xml++">\n"
+			ending         = (replicate indents '\t') ++ "</"++tag xml++">\n"
+			childrenstring = concatMap (showAux (indents+1)) $ children xml
+
+instance Show XML where
+	show = showAux 0
 
