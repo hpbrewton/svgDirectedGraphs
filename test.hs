@@ -9,4 +9,4 @@ samp2 = XML "h" [("dogs", "yes"), ("cats", "pls")] [samp1, samp1]
 -- attrShow :: XML -> String
 main :: IO ()
 main = do
-	putStrLn $ show samp2
+    putStrLn $ show samp2
