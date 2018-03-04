@@ -1,12 +1,9 @@
-import XML
+import SVG 
 
-samp1 :: XML
-samp1 = XML "p" [("size", "4"), ("shape", "3")] []
 
-samp2 :: XML
-samp2 = XML "h" [("dogs", "yes"), ("cats", "pls")] [samp1, samp1]
+g = grouping 50 50 [rectangle 100 100, rectangle 200 200]
 
--- attrShow :: XML -> String
 main :: IO ()
 main = do
-    putStrLn $ show samp2
+	putStrLn $ show $ svgHtml $ svg 500 500 [g]	
+
