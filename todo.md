@@ -3,6 +3,6 @@
 ## Bugs
 
 ## Roadmap
-- [] Play around with xml api
+- [] Play around wi  h xml api
 - [] Freeze xml api
-- [] do the graphics thing
+- [] do   he graphics   hing
